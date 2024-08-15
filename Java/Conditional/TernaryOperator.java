@@ -1,5 +1,3 @@
-// This Java program demonstrates the use of the ternary operator (shorthand if-else)
-
 public class TernaryOperator {
     public static void main(String[] args) {
         
