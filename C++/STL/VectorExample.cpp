@@ -9,8 +9,8 @@ int main(){
     // vector<int> arr;
     // cout << "Is array empty?: " << arr.empty() << endl;
 
-    // This is not an empty vector, and is initialized by 0 with "n" elements
-    vector<int> arr(n);
+    // This is not an empty vector, and is initialized by default with 0 "n" times, or the second argument passed
+    vector<int> arr(n, 2);
     cout << "Is array empty?: " << arr.empty() << endl;
 
     // Display the initial vector elements
