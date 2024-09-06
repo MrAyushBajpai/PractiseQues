@@ -1,14 +1,10 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 int main() {
     int n = 10;
-
-    // This is an empty vector
-    // vector<int> arr;
-    // cout << "Is array empty?: " << arr.empty() << endl;
-
 
     // This is not an empty vector, and is initialized by default with 2 "n" times
     vector<int> arr(n, 2);
@@ -81,7 +77,16 @@ int main() {
     for (auto it : vec5) {
         cout << it << " ";
     }
-    cout << endl;
+    cout << endl << endl;
 
+    // Example of std::find
+    int valueToFind = 200;
+    auto it = find(vec1.begin(), vec1.end(), valueToFind);
+    if (it != vec1.end()) {
+        cout << "Element " << valueToFind << " found at position: " 
+             << distance(vec1.begin(), it) << endl;
+    } else {
+        cout << "Element " << valueToFind << " not found." << endl;
+    }
     return 0;
 }
