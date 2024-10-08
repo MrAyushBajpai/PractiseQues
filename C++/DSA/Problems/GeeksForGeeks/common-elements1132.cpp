@@ -3,6 +3,8 @@
 #include <iostream>
 #include <vector>
 #include <unordered_set>
+#include <set>
+
 using namespace std;
 
 vector<int> commonElementsBruteForceBasic(vector<int> &arr1, vector<int> &arr2, vector<int> &arr3) {
@@ -58,27 +60,28 @@ vector<int> commonElementsBruteForceSetOptimized(vector<int> &arr1, vector<int> 
 vector<int> commonElementsThreePointers(vector<int> &arr1, vector<int> &arr2, vector<int> &arr3){
     int ptr1 = 0, ptr2 = 0, ptr3 = 0;
     vector<int> res;
-    
-    while(ptr1 < arr1.size() && ptr2 < arr2.size() && ptr3 < arr3.size()){
-        if(arr1[ptr1] > arr2[ptr2]){
-            ptr2++;
-        }
-        else if(arr1[ptr1] > arr3[ptr3]){
-            ptr3++;
-        }
-        else if(arr2[ptr2] > arr3[ptr3]){
-            ptr3++;
-        }
-        else if(arr1[ptr1] == arr2[ptr2] && arr2[ptr2] == arr3[ptr3]){
+
+    while (ptr1 < arr1.size() && ptr2 < arr2.size() && ptr3 < arr3.size()) {
+        if (arr1[ptr1] == arr2[ptr2] && arr2[ptr2] == arr3[ptr3]) {
             res.push_back(arr1[ptr1]);
+            
             ptr1++;
             ptr2++;
             ptr3++;
-        }
-        else{
+
+            while (ptr1 < arr1.size() && arr1[ptr1] == arr1[ptr1 - 1]) ptr1++;
+            while (ptr2 < arr2.size() && arr2[ptr2] == arr2[ptr2 - 1]) ptr2++;
+            while (ptr3 < arr3.size() && arr3[ptr3] == arr3[ptr3 - 1]) ptr3++;
+
+        } else if (arr1[ptr1] < arr2[ptr2]) {
             ptr1++;
+        } else if (arr2[ptr2] < arr3[ptr3]) {
+            ptr2++;
+        } else {
+            ptr3++;
         }
     }
+
     return res;
 }
 
