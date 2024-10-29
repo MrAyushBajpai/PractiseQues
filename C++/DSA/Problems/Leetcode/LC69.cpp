@@ -21,5 +21,5 @@ int mySqrtBinary(int x) {
 }
 
 int main(){
-    cout << mySqrt(18);
+    cout << mySqrtBinary(18);
 }
