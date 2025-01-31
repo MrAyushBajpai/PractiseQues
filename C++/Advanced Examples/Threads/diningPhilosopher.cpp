@@ -15,8 +15,8 @@ void Philosopher(int id){
         // Thinking
         std::unique_lock<std::mutex> coutLock(coutMutex);
         std::cout << "Philosopher " << id << " is thinking....\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds(500));
         coutLock.unlock();
+        std::this_thread::sleep_for(std::chrono::milliseconds(500));
 
         // Picking Up Chopsticks
         std::lock(chopsticks[leftChopstick], chopsticks[rightChopstick]);
