@@ -26,8 +26,8 @@ void Philosopher(int id){
         // Eat
         coutLock.lock();
         std::cout << "Philosopher " << id << " is eating...\n";
-        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
         coutLock.unlock();
+        std::this_thread::sleep_for(std::chrono::milliseconds(1000));
     }
 }
 
