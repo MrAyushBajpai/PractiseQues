@@ -25,6 +25,7 @@ ListNode *detectCycle(ListNode *head) {
             return slow;
         }
     }
+    return NULL;
 }
 
 int main(){
@@ -38,8 +39,13 @@ int main(){
     first->next = second;
     second->next = third;
     third->next = fourth;
-    fourth->next = head;
+    fourth->next = third;
 
-    cout << "Loop Present: " << (hasCycle(head) ? "True" : "False");
+    ListNode* res = detectCycle(head);
+    if (res == NULL)
+        cout << "No Cycle";
+    else{
+        cout << "Cycle at: " << res->val;
+    }
 
 }
