@@ -1,0 +1,24 @@
+<script>
+    // 'var' has function scope, not block scope.
+    var myName = "Ayush";
+
+    // 'let' is block-scoped.
+    let age = 21;
+
+    // 'const' is also block-scoped, and its binding can't be reassigned.
+    const pi = 3.14;
+
+    // Additional example to illustrate scope differences
+    if (true) {
+        var myName = "Rahul"; // Reassigns the same 'myName' in the outer scope
+        let age = 25;         // New 'age' scoped only within this block
+        const pi = 3.1415;    // New 'pi' scoped only within this block
+        console.log(myName); // Rahul
+        console.log(age);    // 25
+        console.log(pi);     // 3.1415
+    }
+
+    console.log(myName); // Rahul — overwritten due to var's function scope
+    console.log(age);    // 21 — outer 'age' remains unchanged
+    console.log(pi);     // 3.14 — outer 'pi' remains unchanged
+</script>
