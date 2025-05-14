@@ -1,0 +1,36 @@
+<script>
+    let a = 10;
+    let b = "10";
+    let c = 20;
+
+    // == Loose Equality (compares values, not types)
+    console.log("a == b:", a == b); // true
+
+    // === Strict Equality (compares value and type)
+    console.log("a === b:", a === b); // false
+
+    // != Loose Inequality
+    console.log("a != b:", a != b); // false
+
+    // !== Strict Inequality
+    console.log("a !== b:", a !== b); // true
+
+    /*
+        Strict Comparators allow for checking only if both the operands are the same data type. It's much safer, and generally recommended.
+        Loose Comparators allow for checking different data types, where the operator has to guess what's being compared.
+        Ex:- 10 == "10" -> true: string "10" is converted to int 10
+             null == undefined -> true: they are loosely the same by language rule
+    */
+
+    // Greater than
+    console.log("c > a:", c > a); // true
+
+    // Less than
+    console.log("a < c:", a < c); // true
+
+    // Greater than or equal to
+    console.log("a >= b:", a >= b); // true (b is coerced to number)
+
+    // Less than or equal to
+    console.log("a <= b:", a <= b); // true (again, loose coercion)
+</script>
