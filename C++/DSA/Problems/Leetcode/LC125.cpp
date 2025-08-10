@@ -3,37 +3,22 @@
 #include <string>
 using namespace std;
 
-string removeSpecialChar(string s){
-    string ans = "";
-    for (auto ch: s){
-        if (isalnum(ch)){
-            if (ch >= 'A' && ch <= 'Z'){
-                ans += ch + 'a' - 'A';
-            }
-            else{
-                ans += ch;
-            }
-        }
-    }
-    return ans;
+bool isPalindromeRecursive(const string& s, int start, int end) {
+    while (start < end && !isalnum(s[start])) start++;
+    while (start < end && !isalnum(s[end])) end--;
+
+    if (start >= end) return true;
+
+    if (tolower(s[start]) != tolower(s[end])) return false;
+
+    return isPalindromeRecursive(s, start + 1, end - 1);
 }
 
 bool isPalindrome(string s) {
-    s = removeSpecialChar(s);
-
-    int start = 0, end = s.size() - 1;
-    while(start < end){
-        if (s[start] != s[end]){
-            return false;
-        }
-        start++;
-        end--;
-    }
-
-    return true;
+    return isPalindromeRecursive(s, 0, s.size() - 1);
 }
 
 int main(){
-    string str = "0P";
+    string str = "A man, a plan, a canal: Panama";
     cout << isPalindrome(str);
 }
